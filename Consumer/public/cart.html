@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cart Page</title>
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/plugins/morris.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+
+</head>
+
+<body ng-controller="AppCtrl">
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="dashboard.html">HOME</a>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li>
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ consumerName }}  <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="consumerProfile.html"><i class="fa fa-user"></i> Profile </a>
+                    </li>
+                    <li>
+                        <a href="index.html"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="dashboard.html"><i class="fa fa-user"></i> Account</a>
+                </li>
+                <li>
+                    <a href="sensor.html"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+                        <span class="sr-only">Loading...</span>Sensor Providers</a>
+                </li>
+                <li>
+                    <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Subscriptions</a>
+                </li>
+                <li>
+                    <a href="transactions.html"><i class="fa fa-bars" aria-hidden="true"></i> Node Details</a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+            <div class="col-lg-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Sensors Added</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Sensor ID</th>
+                                    <th>Sensor Type</th>
+                                    <th>Amount (USD)</th>
+                                    <th> </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="cart in cartlist" class="table table-bordered table-hover table-striped">
+                                    <td>{{cart.sensorId}}</td>
+                                    <td>{{cart.sensorType}}</td>
+                                    <td>{{cart.sensorPrice}}</td>
+                                    <td><button ng-click="deleteCart(cart.id)"><i class="glyphicon glyphicon-remove-circle"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"> Amount {{total | currency:'$'}} </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <hr>
+                            <p class="cart-total right">
+                                <strong>Sub-Total</strong>: {{total | currency:'$'}}<br>
+                                <strong>Shipping : Free </strong><br>
+                                <strong>Eco Tax (-2.00)</strong>: $2.00<br>
+                                <strong>VAT (8.5%)</strong>: {{vat | currency:'$'}}<br>
+                                <strong>Total : {{totalWithTax | currency:'$'}}</strong><br>
+                            </p>
+                            <hr/>
+                            <p class="buttons center">
+                                <button class="btn" type="button" ng-click="cancel()">Cancel</button>
+                                <button class="btn btn-inverse" type="submit" id="checkout" ng-click="insertTransactions(cartlist)"> Checkout </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.min.js"></script>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<!--
+<script src="js/plugins/morris/raphael.min.js"></script>
+<script src="js/plugins/morris/morris.min.js"></script>
+<script src="js/plugins/morris/morris-data.js"></script>-->
+
+<script src="controller/controller.js"></script>
+
+
+</body>
+
+</html>

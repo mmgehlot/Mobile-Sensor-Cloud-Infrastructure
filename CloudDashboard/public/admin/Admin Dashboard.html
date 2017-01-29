@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Admin DashBoard</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- jQuery -->
+</head>
+
+<body>
+    <div id="wrapper">
+
+<!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" >Admin Dash Board</a>
+            </div>
+            
+     <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="../login.html"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="Admin Dashboard.html"><i class="fa fa-fw fa-dashboard"></i> Overview</a>
+                    </li>
+
+                    <li>
+                        <a href="node detail.html"><i class="fa fa-fw fa-users "></i>Node Details</a>
+                    </li>
+
+                    <li>
+                        <a href="Virtual Sensor.html"><i class="fa fa-fw fa-users "></i>Virtual Sensor Group</a>
+                    </li>
+
+                     <li>
+                        <a href="user.overview..html"><i class="fa fa-fw fa-users "></i>Consumer</a>
+                    </li>
+
+                    <li>
+                        <a href="provider.overview.html"><i class="fa fa-fw fa-map-marker"></i> Provider</a>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+<!-- /.navbar-collapse -->
+
+        <div id="page-wrapper">
+           
+           <div class="container-fluid">
+             
+<!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Dashboard <small>Statistics Overview</small>
+                        </h1>
+                      
+                    </div>
+                </div>   <!-- /.row -->
+               
+               
+<!-- Icons on top -->         
+               <div class="row">
+                <div class="col-md-3 col-md-3">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                 <div class="col-xs-9 text-center">                                    
+                                    <div><h4> Active<br>Node </h4></div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <i class="fa fa-user fa-4x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="node%20detail.html">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>  
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-md-3">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                 <div class="col-xs-9 text-center">                                    
+                                    <div><h4> Virtual Sensor Cluster </h4></div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <i class="fa fa-map-marker fa-4x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="Virtual%20Sensor.html">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>  
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-md-3">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                 <div class="col-xs-9 text-center">                                    
+                                    <div><h4> Consumer</h4></div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <i class="fa fa-map-marker fa-4x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="user.overview..html">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>  
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                 <div class="col-md-3 col-md-3">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                 <div class="col-xs-9 text-center">                                    
+                                    <div><h4>Provider</h4></div>
+                                </div>
+                                <div class="col-s-3">
+                                    <i class="fa fa-support fa-4x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="provider.overview.html">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>  
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        </div>       <!-- /.row -->
+               
+<!-- Sensor overview -->
+               <div class="row">
+                   <div class="col-lg-12">
+                       <h3 class="page-header" style=" margin-top: 7px; margin-bottom: 7px;"> Live Server Statistic</h3>
+                   </div>  <!-- col-lg-12-->
+                   <br><br><br>
+
+                   <div id="flot-placeholder1" style="width:1000px;height:300px"></div>
+                </div>
+
+            <div id="google-map" style="width:800px;height:300px"></div>
+
+
+           </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/socket.io.js"></script>
+    <script type="text/javascript" src="js/jquery.flot.js"></script>
+    <script type="text/javascript" src="js/jquery.flot.time.js"></script>
+    <script type="text/javascript" src="js/jquery.flot.axislabels.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD_gEHIqZUZsQAp1Wl1wiNaXh3saKZJMk"></script>
+
+
+
+    <script type="text/javascript">
+        var socket = io.connect("http://localhost:3080");
+        var data = [];
+        var dataset;
+        var totalPoints = 100;
+        var updateInterval = 1000;
+        var now = new Date().getTime();
+        var yVal,prevValue=0;
+
+        socket.on('pktcnt',function(message)
+        {
+            yVal = parseInt(message,10);
+            prevValue = yVal-prevValue;
+            alert(prevValue);
+            console.log(prevValue);
+        });
+
+
+        function GetData() {
+            data.shift();
+
+            while (data.length < totalPoints) {
+                //var y = Math.random() * 100;
+                //var y = prevValue;
+                var y = Math.random() * prevValue;
+                var temp = [now += updateInterval, y];
+                data.push(temp);
+            }
+        }
+
+        var options = {
+            series: {
+                lines: {
+                    show: true,
+                    lineWidth: 1.2,
+                    fill: true
+                }
+            },
+            xaxis: {
+                mode: "time",
+                tickSize: [2, "second"],
+                tickFormatter: function (v, axis) {
+                    var date = new Date(v);
+
+                    if (date.getSeconds() % 20 == 0) {
+                        var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+                        var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+                        var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+
+                        return hours + ":" + minutes + ":" + seconds;
+                    } else {
+                        return "";
+                    }
+                },
+                axisLabel: "Time",
+                axisLabelUseCanvas: true,
+                axisLabelFontSizePixels: 12,
+                axisLabelFontFamily: 'Verdana, Arial',
+                axisLabelPadding: 10
+            },
+            yaxis: {
+                min: 0,
+                max: 100,
+                tickSize: 5,
+                tickFormatter: function (v, axis) {
+                    if (v % 10 == 0) {
+                        return v + "%";
+                    } else {
+                        return "";
+                    }
+                },
+                axisLabel: "Server Request",
+                axisLabelUseCanvas: true,
+                axisLabelFontSizePixels: 12,
+                axisLabelFontFamily: 'Verdana, Arial',
+                axisLabelPadding: 6
+            },
+            legend: {
+                labelBoxBorderColor: "#fff"
+            },
+            grid: {
+                backgroundColor: "#000000",
+                tickColor: "#008040"
+            }
+        };
+
+        $(document).ready(function () {
+
+            GetData();
+
+            dataset = [
+                { label: "Network Statistics", data: data, color: "#00FF00" }
+            ];
+
+            $.plot($("#flot-placeholder1"), dataset, options);
+
+            function update() {
+                GetData();
+                socket.emit('getPacketStats');
+                $.plot($("#flot-placeholder1"), dataset, options)
+                setTimeout(update, updateInterval);
+            }
+            update();
+        });
+
+
+    </script>
+    <script async defer src=https://maps.googleapis.com/maps/api/js?key=AIzaSyAD_gEHIqZUZsQAp1Wl1wiNaXh3saKZJMk&callback=initialize"></script>
+
+    <script type="text/javascript">
+        var infowindow;
+        var socket = io.connect("http://localhost:3080");
+        socket.on('latlong',function(data) {
+            console.log(data.lat + " : " + data.long);
+            var lat=data.lat;
+            var long=data.long;
+            initialize(lat,long);
+
+            infowindow = new google.maps.InfoWindow({
+                content: lat + ", " + long
+            });
+
+        });
+
+        var myCenter = new google.maps.LatLng(37.3352,-121.8811);
+        var latlongs=[];
+        var mapProp = {
+            center: myCenter,
+            zoom:12,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("google-map"),mapProp);
+
+        var marker = new google.maps.Marker({
+            position:myCenter,
+        });
+
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+        });
+
+        function initialize(lat,long)
+        {
+            var latlong = new google.maps.LatLng(lat,long);
+            latlongs.push(latlong);
+            marker.setPosition(latlong);
+            marker.setMap(map);
+        }
+       /*
+        function () {
+            var trackPath = new google.maps.Polyline({
+                path: latlongs,
+                icons: [{
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE
+                    },
+                    repeat: '175px'
+                }],
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+            });
+            trackPath.setMap(map);
+
+        }
+        /*
+        function loadScript()
+        {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAD_gEHIqZUZsQAp1Wl1wiNaXh3saKZJMk&callback=initialize";
+            document.body.appendChild(script);
+        }
+        */
+        window.onload = initialize();
+
+    </script>
+
+</body>
+</html>

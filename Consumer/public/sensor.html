@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Sensor Page</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/plugins/morris.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="dashboard.html">HOME</a>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li>
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><label id="username"></label> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="consumerProfile.html"><i class="fa fa-user"></i> Profile</a>
+                    </li>
+                    <li>
+                        <a href="index.html"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="dashboard.html"><i class="fa fa-user"></i> Account</a>
+                </li>
+                <li class="active">
+                    <a href="sensor.html"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+                        <span class="sr-only">Loading...</span>Sensor Providers</a>
+                </li>
+                <li>
+                    <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Subscriptions</a>
+                </li>
+                <li>
+                    <a href="transactions.html"><i class="fa fa-bars" aria-hidden="true"></i> Node Details</a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Providers <small>Statistics Overview</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li class="active">
+                            <i class="fa fa-dashboard"></i> Providers
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+
+            <div class="col-lg-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Price Plan</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="tblProvider" class="table table-bordered table-hover table-striped">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>PROVIDER ID</th>
+                                    <th>PROVIDER NAME</th>
+                                    <th>PER HOURS</th>
+                                    <th>PER DAYS</th>
+                                    <th>PER MONTH</th>
+                                    <th>PER YEAR</th>
+                                    <th>NODES</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.min.js"></script>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<!--
+<script src="js/plugins/morris/raphael.min.js"></script>
+<script src="js/plugins/morris/morris.min.js"></script>
+<script src="js/plugins/morris/morris-data.js"></script>-->
+
+<script src="controller/controller.js"></script>
+<script type="text/javascript">
+
+   document.getElementById('username').innerHTML = "&nbsp;&nbsp;&nbsp;" + window.sessionStorage.username;
+
+    var list = [];
+    var consumerName;
+    var cid = window.sessionStorage.username;
+
+   function getUserName() {
+       $.ajax({
+           url: 'http://localhost:3000/getUserInfo?consumerID=' + window.sessionStorage.username,
+           method: 'GET',
+           dataType: 'JSON',
+           contentType: "application/json; charset=utf-8",
+           success: function (data) {
+               consumerName = data[0].fname + " " + data[0].lname;
+           }
+       });
+   }
+
+   window.onload = getUserName();
+
+
+    function getNotification() {
+        $.ajax({
+            url: 'http://localhost:3000/getProvider',
+            method: 'GET',
+            dataType: 'JSON',
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+
+                var id = 0, markup;
+                for(var i=0;i<data.length;i++,id++) {
+                    list.push(data[i].providerID);
+                    markup = "<tr><td>" + id +
+                            "</td><td>" + data[i].providerID +
+                            "</td><td>" + data[i].pFirstName + " " + data[i].pLastName +
+                            "</td><td>" + data[i].hrs +
+                            "</td><td>" + data[i].day +
+                            "</td><td>" + data[i].month +
+                            "</td><td>" + data[i].year +
+                            "</td><td><input style='width: 40px;' type='text' id=\'txt" + id + "\'/>" +
+                            "</td><td style='text-align:center;'><button id=\'" + id +  "\' class='btn btn-danger' onclick='addNode(this.id);' >Add Node</button></td></tr>";
+                    console.log(markup);
+                    $("#tblProvider tbody").append(markup);
+                }
+            }
+        });
+        console.log(list);
+    }
+
+    function addNode(id)
+    {
+        var node = document.getElementById('txt'+id).value;
+        if(isNaN(node))
+            alert('Please provide integer value only');
+        else
+            {
+            var info =
+            {   consumerID : cid,
+                consumerName : consumerName,
+                providerID : list[id],
+                nodeCount : node
+            };
+            console.log(info);
+            $.ajax({
+                url: 'http://localhost:3000/requestNode',
+                method: 'get',
+                dataType: 'json',
+                data : info,
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if(data.status==='ok')
+                        alert('Request has been submitted to provider');
+                }
+            });
+        }
+    }
+    window.onload = getNotification();
+    </script>
+</body>
+
+</html>

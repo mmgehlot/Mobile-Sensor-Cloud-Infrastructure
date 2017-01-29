@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sensor Overview</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div id="wrapper">
+
+<!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" >Admin Dash Board</a>
+            </div>
+            
+     <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="../login.html"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="Admin Dashboard.html"><i class="fa fa-fw fa-dashboard"></i> Overview</a>
+                    </li>
+
+                    <li>
+                        <a href="node detail.html"><i class="fa fa-fw fa-users "></i>Node Details</a>
+                    </li>
+                    <li>
+                        <a href="Virtual Sensor.html"><i class="fa fa-fw fa-users "></i>Virtual Sensor Group</a>
+                    </li>
+
+                    <li>
+                        <a href="user.overview..html"><i class="fa fa-fw fa-users "></i>Consumer</a>
+                    </li>
+
+                    <li>
+                        <a href="provider.overview.html"><i class="fa fa-fw fa-map-marker"></i> Provider</a>
+                    </li>
+
+                </ul>
+            </div>
+    </nav>    
+
+        
+  <div id="page-wrapper">
+
+    <div class="container-fluid">
+
+      <!-- Page Heading -->
+              <div class="row">
+                 <div class="col-lg-12">
+                 <h3 class="page-header" style=" margin-top: 7px; margin-bottom: 7px;">Sensor Overview</h3>
+                 </div>
+            </div>
+                
+<!-- Sensor Overview -->
+
+<!-- Sensor Table -->        
+         <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-fw fa-edit"></i> Sensors</h3>
+                    </div>
+                    
+                <div class="panel-body" style="overflow:auto; height:150px;">
+                      <table class="table" id="tblSensorData">
+                        <thead>
+                            <tr>
+                                <th>S No</th>
+                                <th>Node ID</th>
+                                <th>Consumer ID</th>
+                                <th>Provider ID</th>
+                                <th>Temperature</th>
+                                <th>Pressure</th>
+                                <th>Humidity</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>   
+                </div>
+             </div>
+          </div>  <!-- .col-12 end-->
+       </div>  <!--.row end -->
+        
+        
+<!-- Sensor Map -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-fw fa-map-marker"></i> Available Sensors on Map</h3>
+                    </div>
+
+                <div class="panel-body">
+
+                </div>
+             </div>
+          </div>  <!-- .col-12 end-->
+       </div>  <!--.row end -->
+
+                
+     </div>  <!-- /.container-fluid -->
+
+  </div>      <!-- /#page-wrapper --> 
+</div>         <!-- /#wrapper --> 
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/socket.io.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    
+    <!-- Angular JS-->
+    <script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+
+<script type="text/javascript">
+
+function getData() {
+    $.ajax({
+        url: 'http://localhost:3002/getSensorData',
+        method: 'GET',
+        dataType: 'JSON',
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            var id = 1, markup;
+            for(var i=1;i<data.length;i++,id++){
+                markup = "<tr><td>" + id + "</td><td><a href='#' onclick=alert('Hello');>" + data[i].nodeID + "</a></td><td>" + data[i].consumerID + "</td><td>" + data[i].providerID
+                        + "</td><td>" + data[i].sTempID + "</td><td>" + data[i].sPressID
+                        + "</td><td>" + data[i].sHumidityID + "</td><td>"
+                        + data[i].sLocID + "</td><td>Active</td></tr>";
+                console.log(markup);
+                $("#tblSensorData tbody").append(markup);
+            }
+        }
+    });
+}
+
+window.onload = getData();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<html>
+<head>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script>
+		var total = 5+15;
+		console.log(total);
+		        console.log("Hello");
+				var socket = io();
+				socket.on('clientdetails',function(data){
+					console.log(data);
+				});
+	</script>
+	<script>
+		var total = 5+4;
+		alert(total);
+	</script>
+
+</head>
+<body>
+	<p>Testing console vs alert</p>
+</body>
+</html>

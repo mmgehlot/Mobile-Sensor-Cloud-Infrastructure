@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Deployed Sensor</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div id="wrapper">
+
+<!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" >Sensor Provider Dash Board</a>
+            </div>
+            
+     <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+               
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Shaily Khare <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="profile.html"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li >
+                        <a href="provider.dashboard.html"><i class="fa fa-fw fa-dashboard"></i> Overview</a>
+                    </li>
+                    
+                    <li class="active">                          
+                        <a href="manage.sensors.html"><i class="fa fa-fw fa-edit"></i> Manage Sensors</a>
+						 <ul class="nav nav-second-level">
+                                <li >
+                                    <a href="deployed.sensor.html">Deployed Sensor</a>
+                                </li>
+
+                            </ul>
+                    </li>
+                    
+                      <li>
+                        <a href="monitor.html"><i class="fa fa-fw fa-map-marker"></i> Monitor</a>
+                    </li>
+                 
+                     <li>
+                        <a href="no.of.cust.html"><i class="fa fa-fw fa-users "></i> Consumer List</a>
+                    </li>
+					
+					<li>
+                        <a href="noti.html"><i class="fa fa-fw fa-users "></i> Notification/Message</a>
+                    </li>
+                    
+                    <li>
+                        <a href="pricing.html"><i class="fa fa-support"></i> Pricing </a>
+                    </li>
+                                    
+                </ul>
+            </div>
+    </nav>  
+
+  <div id="page-wrapper">
+          
+      <div class="container-fluid">
+             
+<!-- Page Heading -->
+      <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="page-header">Deployed Sensor</h3>
+                      </div>
+                </div>      <!-- /.row -->
+               
+          <div class="col-lg-6">
+              <div class="panel panel-default">
+                   <div class="panel-heading">
+                      <h3 class="panel-title"> Available Node  </h3>
+                    </div>
+				  
+                  <div class="panel-body">
+				  
+					          <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+								<th>Consumer ID</th>
+								<th>Node ID</th>
+								<th></th>
+                                <th>Action</th>
+							</tr>
+                        </thead>
+
+                         <tbody>
+                             <tr >
+								 <td>1</td>
+								 <td>111111</td>
+								 <td>NODE 1</td>
+								 <td></td>
+                             </tr>
+                         </tbody>
+                    </table>
+					  
+					   <div><p align="right"><button type="button" class="btn btn-primary">Deploy</button>
+						<button type="button" class="btn btn-primary">Create Node</button></p></div>
+			 
+				   </div>
+						   
+                           
+                        </div>  <!-- /.panel-body -->                          
+                    </div>
+                </div>    <!-- /.col-lg-7 -->
+                
+           </div>
+            <!-- /.container-fluid -->
+
+        </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

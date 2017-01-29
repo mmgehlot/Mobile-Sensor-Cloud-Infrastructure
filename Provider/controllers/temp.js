@@ -1,0 +1,1 @@
+console.log('N13'.substring(1,'N13'.length));
